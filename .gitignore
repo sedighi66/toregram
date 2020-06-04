@@ -4,3 +4,15 @@ build/
 obj/
 *.iml
 local.properties
+
+
+TMessagesProj/.cxx
+TMessagesProj/build
+TMessagesProj/arm64_SDK23
+TMessagesProj/arm64
+TMessagesProj/x86_SDK23
+TMessagesProj/x86
+TMessagesProj/armv7_SDK23
+TMessagesProj/armv7
+TMessagesProj/x64_SDK23
+TMessagesProj/x64

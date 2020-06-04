@@ -1,6 +1,10 @@
 import java.security.MessageDigest
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+def $toregram_VersionName = "6.1.1"
+def $toregram_VersionCode = 1946
 
 repositories {
     mavenCentral()
@@ -37,6 +41,9 @@ dependencies {
     implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
     implementation 'com.stripe:stripe-android:2.0.2'
     implementation files('libs/libgsaverification-client.aar')
+
+    //Toregram
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
 }
 
 android {
@@ -44,7 +51,7 @@ android {
     buildToolsVersion '29.0.3'
     ndkVersion "20.0.5594570"
 
-    defaultConfig.applicationId = "org.telegram.messenger"
+    defaultConfig.applicationId = "org.itkarasa.toregram"
 
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
@@ -71,17 +78,17 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file("config/release.keystore")
-            storePassword RELEASE_STORE_PASSWORD
-            keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_KEY_PASSWORD
+         //   storeFile file("config/release.keystore")
+         //   storePassword RELEASE_STORE_PASSWORD
+         //   keyAlias RELEASE_KEY_ALIAS
+         //   keyPassword RELEASE_KEY_PASSWORD
         }
 
         release {
-            storeFile file("config/release.keystore")
-            storePassword RELEASE_STORE_PASSWORD
-            keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_KEY_PASSWORD
+//            storeFile file("config/release.keystore")
+//            storePassword RELEASE_STORE_PASSWORD
+//            keyAlias RELEASE_KEY_ALIAS
+//            keyPassword RELEASE_KEY_PASSWORD
         }
     }
 
@@ -286,7 +293,7 @@ android {
         }
     }
 
-    defaultConfig.versionCode = 1946
+    defaultConfig.versionCode = $toregram_VersionCode
 
     def tgVoipDexFileName = "libtgvoip.dex"
     def tgVoipDexClasses = ["AudioRecordJNI", "AudioTrackJNI", "NativeTgVoipDelegate", "NativeTgVoipInstance", "TgVoipNativeLoader", "Resampler", "VLog"]
@@ -381,7 +388,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionName "6.1.1"
+        versionName $toregram_VersionName
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
 
